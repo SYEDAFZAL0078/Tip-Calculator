@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+
+        }
+        body{
+           
+            background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+        }
+        #container{
+            background: rgb(34,193,195);
+background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(250,192,65,0.7389095803965693) 100%);
+            width: 300px;
+            height: 400px;
+            margin-left:600px;
+            margin-top: 200px;
+            border-radius: 20%;
+            padding: 20px;
+            box-sizing: border-box;
+            
+        }
+        h2{
+            text-align: center;
+            margin: 30px 10px;
+            font-weight: bolder;
+        }
+        label{
+            display: block;
+            margin-left:5px ;
+            font-style: italic;
+            font-weight: bolder;
+        }
+        #amount{
+            margin-left:20px ;
+            margin-bottom: 20px;
+            font-size: 12px;
+            width: 150px;
+            height: 20px;
+            padding: 5px;
+            box-sizing:border-box;
+            font-style: italic;
+            border: none;
+            border-radius: 30px;
+            border-bottom: 2px solid black;
+        }
+        
+        #tips{
+            margin-left:20px ;
+            margin-bottom: 20px;
+            font-size: 12px;
+            width: 150px;
+            height: 20px;
+            padding: 5px;
+            box-sizing:border-box;
+            font-style: italic;
+            border: none;
+            border-radius: 30px;
+            border-bottom: 2px solid black;
+        }
+
+        #peoplestext{
+            font-size: 17px;
+           
+            margin-bottom: 10px;
+            font-weight: bolder;
+            text-align: center;
+
+        }
+        #buttons{
+            display: flex;
+        }
+        #plus{
+            
+            margin-left: 100px;
+            border-radius: 100%;
+            background-color: black;
+            color: aliceblue;
+            margin-right: 3px;
+            width: 20px;
+            height: 20px;
+        }
+        #minus{
+            
+            margin-left: 5px;
+            border-radius: 100%;
+            background-color: black;
+            color: aliceblue;
+            margin-right: 3px;
+            width: 20px;
+            height: 20px;
+        }
+        #amounttext{
+            text-align: center;
+            margin-top: 20px;
+            font-weight: bolder;
+        }
+        #personamount{
+            text-align: center;
+            margin-top: 5px;
+            font-weight: bolder;
+        }
+        #cal{
+            margin-left: 70px;
+            margin-top: 30px;
+            border-radius: 10px;
+            background-color: black;
+            color: aliceblue;
+            margin-right: 3px;
+            width: 100px;
+            height: 30px;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div id="container">
+        <h2>Tip Calculator</h2>
+        <label for="amount">$ Enter Bill Amount</label>
+        <input type="text" placeholder="$ Enter Amount" id="amount">
+        <br>
+        <label for="tip">Enter Tips Percentage</label>
+        <input type="text" placeholder="Enter Tips %" id="tips">
+
+        <br>
+        <h5 id="peoplestext">How many peoples</h5>
+        <div id="buttons">
+            
+            <button id="plus" onclick="increment()">+</button>
+            <p id="peoples">0</p>
+            <button id="minus" onclick="decrement()">-</button>
+        </div>
+
+        <span>
+            <p id="amounttext">Amont per person</p>
+            <p id="personamount"></p>
+        </span>
+        <button id="cal" onclick="cal()">Calculate</button>
+    </div>
+
+    <script>
+     function increment(){
+        let person=parseInt(document.getElementById("peoples").innerText);
+        person++;
+        document.getElementById("peoples").innerText=person;
+        return person;
+
+     }
+     function decrement(){
+        let person=parseInt(document.getElementById("peoples").innerText);
+        person--;
+        document.getElementById("peoples").innerText=person;
+        return person;
+
+     }
+
+    function cal(){
+     let amount=parseInt(document.getElementById("amount").value);
+     let tips=parseInt(document.getElementById("tips").value);
+     let answer=document.getElementById("personamount");
+     let person= document.getElementById("peoples").innerText;
+     let ans=(tips/100)*amount;
+     let final=(ans+amount)/person;
+    answer.innerText=final;
+
+    }
+    </script>
+</body>
+
+</html>
+
+<!-- let a=document.getElementById("amount").value;
+parseInt(a);
+let t=document.getElementById("tips").value;
+parseInt(t);
+
+let person=document.getElementById("peoples").innerText;
+let answer=document.getElementById("personamount"); -->
+<!-- //   person=Number(person);
+// function increment(){
+//      person++;
+//     document.getElementById("peoples").innerText=person;
+  
+// }
+
+// function decrement(){
+//      person--;
+//     document.getElementById("peoples").innerText=person;
+
+// }
+function cal(){
+// let ans=(tips/100)*amount;
+// let final=(ans+amount)/4;
+// answer.innerText=final;
+//console.log(a*t);
+//} -->
